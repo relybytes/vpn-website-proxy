@@ -75,6 +75,22 @@ services:
       - PROXY_PASS_URL= # URL to proxy pass
 ```
 
+or docker command:
+
+```bash
+docker run --name vpn-client \
+  --cap-add NET_ADMIN \
+  -p 18080:18080 \
+  -e VPN_URL=YOUR_VPN_SERVER_URL \
+  -e VPN_USER=YOUR_VPN_USERNAME \
+  -e VPN_PASS=YOUR_VPN_PASSWORD \
+  -e PROXY_PASS_URL=YOUR_PROXY_PASS_URL \
+  ghcr.io/relybytes/vpn-website-proxy:latest
+
+```
+
+Wait one minute and go to `localhost:18080`
+
 # Documentation
 
 This section provides additional resources and documents related to the VPN-Aware Web Proxy project. It's a central repository for all the informational content that supports the understanding, implementation, and operation of the project.
