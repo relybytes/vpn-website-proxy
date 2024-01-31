@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   vpn-client:
-    build: .
+    image: ghcr.io/relybytes/vpn-website-proxy:latest
     cap_add:
       - NET_ADMIN
     ports:

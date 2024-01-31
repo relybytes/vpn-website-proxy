@@ -3,18 +3,23 @@
 The "VPN Web Proxy" project provides a Docker-based solution for integrating a web proxy with VPN connectivity. It's designed to enable direct access to internal websites through a VPN connection and is compatible with a range of VPN services including Cisco VPN, NordVPN, and others.
 
 ## What is it?
+
 A Docker container that combines a VPN client and an Nginx web proxy for secure, internal web access.
 
 ## Who uses this project?
+
 Ideal for remote workers, IT professionals, and anyone needing to access internal networks securely.
 
 ## Where it is used?
+
 In environments where internal websites are accessible only via a VPN.
 
 ## When is it necessary?
+
 Essential in remote working scenarios or for accessing internal resources from outside a corporate network.
 
 ## Why was it developed?
+
 To simplify the process of accessing internal web resources through a VPN.
 
 # Summary
@@ -33,13 +38,15 @@ This section will detail the architecture of the project, including how the Dock
 # Repository
 
 The repository consists of the following key components:
-* **Dockerfile** - Defines the Docker image and its dependencies for running the VPN and web proxy.
-* **nginx.conf** - Nginx configuration file set up as a reverse proxy.
-* **vpn-connect.sh** - Script to manage Nginx and the logic for connecting to the VPN.
+
+- **Dockerfile** - Defines the Docker image and its dependencies for running the VPN and web proxy.
+- **nginx.conf** - Nginx configuration file set up as a reverse proxy.
+- **vpn-connect.sh** - Script to manage Nginx and the logic for connecting to the VPN.
 
 # Installation
 
 To set up this project, you need:
+
 - A machine capable of running Docker and Docker Compose.
 - Dependencies: Docker, Docker Compose, and a compatible VPN client.
 
@@ -56,7 +63,7 @@ version: "3.8"
 
 services:
   vpn-client:
-    build: .
+    image: ghcr.io/relybytes/vpn-website-proxy:latest
     cap_add:
       - NET_ADMIN
     ports:
