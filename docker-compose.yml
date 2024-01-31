@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  vpn-client:
+    build: .
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "18080:18080"
+    environment:
+      - VPN_URL=
+      - VPN_USER=
+      - VPN_PASS=
+      - PROXY_PASS_URL=
