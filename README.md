@@ -1,15 +1,21 @@
-# Project
+# VPN Web Proxy
 
-Here must be the summary of the description of this project. 
-This description must answer these questions:
-- What is?
-- Who uses this project?
-- Where it is used?
-- When is necessary?
-- Why is developed?
-- What are the main functionalities?
+The "VPN Web Proxy" project provides a Docker-based solution for integrating a web proxy with VPN connectivity. It's designed to enable direct access to internal websites through a VPN connection and is compatible with a range of VPN services including Cisco VPN, NordVPN, and others.
 
-Note: each title can be extended with subtitles according to the complexity of the project
+## What is it?
+A Docker container that combines a VPN client and an Nginx web proxy for secure, internal web access.
+
+## Who uses this project?
+Ideal for remote workers, IT professionals, and anyone needing to access internal networks securely.
+
+## Where it is used?
+In environments where internal websites are accessible only via a VPN.
+
+## When is it necessary?
+Essential in remote working scenarios or for accessing internal resources from outside a corporate network.
+
+## Why was it developed?
+To simplify the process of accessing internal web resources through a VPN.
 
 # Summary
 
@@ -18,60 +24,62 @@ Note: each title can be extended with subtitles according to the complexity of t
 3. [Installation](#installation)
 4. [Build](#build)
 5. [Run](#run)
-6. [Deploy](#deploy)
-7. [Test](#test)
-8. [Documentation](#documentation)
-9. [Team](#team)
+6. [Documentation](#documentation)
 
 # Architecture
 
-This section should help the developer to understand how the project works physically
-In this section, it helps a lot to have an image or a graph (made for example using a mermaid) that helps to understand quickly the context and how it interacts with the real world
+This section will detail the architecture of the project, including how the Docker container integrates the VPN client and Nginx web proxy, and their interaction with the external network.
 
 # Repository
 
-This section should explain how the repository is structured, also at the code level (classes/folders).
-Also any links to other repositories (submodules).
-
-This is a basic structure:
-* **folder1** -> this folder contains ...
-
-The folders obviously must be present if they are needed (if for example there are no scripts, the folder will not be present either)
+The repository consists of the following key components:
+* **Dockerfile** - Defines the Docker image and its dependencies for running the VPN and web proxy.
+* **nginx.conf** - Nginx configuration file set up as a reverse proxy.
+* **vpn-connect.sh** - Script to manage Nginx and the logic for connecting to the VPN.
 
 # Installation
 
-The following information must be present:
-- physical requirements of the machine to carry out the project 
-- application requirements (dependencies) with the specific versions 
-- steps to install the development environment and be ready to program 
-
-In addition, there must be information about the recommended IDE/Tools needed or recommended to use
+To set up this project, you need:
+- A machine capable of running Docker and Docker Compose.
+- Dependencies: Docker, Docker Compose, and a compatible VPN client.
 
 # Build
 
-The commands and steps to perform the build of the package, to be released, must be present in this section
+This section outlines the commands and steps required to build the Docker container.
 
 # Run
 
-The commands and steps to perform the run of the application (for developers)
+You can run the application using Docker or Docker Compose. Here's an example Docker Compose setup:
 
-# Deploy
+```yaml
+version: "3.8"
 
-This section must have the information present in order to release.
-If a procedure already exists, indicate the document and how to retrieve it
-
-# Test
-
-The section should include information about the test strategy used and how to perform it
+services:
+  vpn-client:
+    build: .
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "18080:18080"
+    environment:
+      - VPN_URL= # VPN server URL
+      - VPN_USER= # VPN username
+      - VPN_PASS= # VPN password
+      - PROXY_PASS_URL= # URL to proxy pass
+```
 
 # Documentation
 
-This section may contain information relating to:
-- attached documents (datasheets, images, etc.)
-- references to requirements
-- useful documentation
+This section provides additional resources and documents related to the VPN-Aware Web Proxy project. It's a central repository for all the informational content that supports the understanding, implementation, and operation of the project.
 
-# Team
+## Reference Materials
 
-This section is optional. It is necessary if there are information needed to introduce a person to the project or if there is a training program
+- **Docker Documentation**: For understanding Docker and Docker Compose configurations, refer to the [official Docker documentation](https://docs.docker.com/).
+- **Nginx Documentation**: To get more detailed information about Nginx configurations, visit the [official Nginx documentation](https://nginx.org/en/docs/).
+- **VPN Client Documentation**: For specific details about the VPN clients supported (like Cisco VPN or NordVPN), refer to the respective official documentation of these services.
 
+## Support
+
+For additional support or queries regarding the project, you can refer to the issue tracker in the repository.
+
+Remember, this project is a collaborative effort, and contributions to both the code and documentation are always welcome!
