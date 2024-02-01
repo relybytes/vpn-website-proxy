@@ -89,7 +89,7 @@ docker run --name vpn-client \
   -e PROXY_LISTEN_PORT=18080 \
   -e PROXY_BASE_URL=YOUR_PROXY_BASE_URL \
   -e PROXY_PASS_URL=YOUR_PROXY_PASS_URL \
-  ghcr.io/relybytes/vpn-website-proxy:latest
+  ghcr.io/relybytes/vpn-website-proxy:latest -d
 
 ```
 
