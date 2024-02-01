@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VARS='$PROXY_PASS_URL:$PROXY_LISTEN_PORT'
+VARS='$PROXY_PASS_URL:$PROXY_LISTEN_PORT:$PROXY_BASE_URL'
 
 # Replace environment variables in nginx.conf.template and save to nginx.conf
 envsubst "$VARS" < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf

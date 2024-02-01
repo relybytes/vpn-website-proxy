@@ -8,5 +8,9 @@ services:
     ports:
       - "18080:18080"
     environment:
+      - VPN_URL=
+      - VPN_USER=
+      - VPN_PASS=
       - PROXY_PASS_URL=
+      - PROXY_BASE_URL=
       - PROXY_LISTEN_PORT=18080
