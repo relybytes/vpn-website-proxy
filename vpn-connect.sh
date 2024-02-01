@@ -14,6 +14,7 @@ establish_vpn_connection_and_capture_output() {
 
 # Function to check VPN connection status
 check_vpn_connection() {
+    echo "Wait 10 seconds to check the VPN connection..."
     # Wait for a bit to allow VPN connection to establish
     sleep 10
 
@@ -50,6 +51,7 @@ if grep -q 'Server certificate verify failed' vpn_output.log; then
     fi
 fi
 
-echo "Start nginx..."
+echo "Start proxy nginx correctly!";
+echo "Now you can navigate on: $PROXY_PASS_URL using this URL: http://localhost:$PROXY_LISTEN_PORT";
 # Start Nginx in the foreground
 nginx -g 'daemon off;'
