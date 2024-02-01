@@ -41,6 +41,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.DOCKER_REGISTRY }}:${{ steps.vars.outputs.tag_name }}
             ${{ env.DOCKER_REGISTRY }}:latest
@@ -49,6 +50,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.DOCKER_REGISTRY }}:latest
             ${{ env.DOCKER_REGISTRY }}:${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.short_sha }}
