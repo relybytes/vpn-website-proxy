@@ -80,7 +80,7 @@ services:
 or docker command:
 
 ```bash
-docker run --name vpn-client \
+docker run --name vpn-client -d \
   --cap-add NET_ADMIN \
   -p 18080:18080 \
   -e VPN_URL=YOUR_VPN_SERVER_URL \

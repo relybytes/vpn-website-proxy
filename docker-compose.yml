@@ -6,11 +6,11 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
-      - "18080:18080"
+      - "9091:9091"
     environment:
-      - VPN_URL=
-      - VPN_USER=
-      - VPN_PASS=
-      - PROXY_PASS_URL=
-      - PROXY_BASE_URL=
-      - PROXY_LISTEN_PORT=18080
+      - VPN_URL=my.vpn.com
+      - VPN_USER=username
+      - VPN_PASS=password
+      - PROXY_PASS_URL=http://mywebsite.com:9091
+      - PROXY_BASE_URL=http://mywebsite.com
+      - PROXY_LISTEN_PORT=9091
