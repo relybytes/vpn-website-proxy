@@ -1,7 +1,9 @@
 #!/bin/bash
 
+ARS='$PROXY_PASS_URL:$PROXY_LISTEN_PORT'
+
 # Replace environment variables in nginx.conf.template and save to nginx.conf
-envsubst '$PROXY_PASS_URL' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
+envsubst "$VARS" < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
 
 # Function to establish VPN connection and capture output
 establish_vpn_connection_and_capture_output() {
