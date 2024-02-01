@@ -73,6 +73,7 @@ services:
       - VPN_USER= # VPN username
       - VPN_PASS= # VPN password
       - PROXY_PASS_URL= # URL to proxy pass
+      - PROXY_LISTEN_PORT=18080
 ```
 
 or docker command:
@@ -84,6 +85,7 @@ docker run --name vpn-client \
   -e VPN_URL=YOUR_VPN_SERVER_URL \
   -e VPN_USER=YOUR_VPN_USERNAME \
   -e VPN_PASS=YOUR_VPN_PASSWORD \
+  -e PROXY_LISTEN_PORT=18080 \
   -e PROXY_PASS_URL=YOUR_PROXY_PASS_URL \
   ghcr.io/relybytes/vpn-website-proxy:latest
 
