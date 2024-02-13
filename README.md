@@ -80,7 +80,7 @@ services:
 or docker command:
 
 ```bash
-docker run --name vpn-client -d \
+docker run -d --name vpn-client -d \
   --cap-add NET_ADMIN \
   -p 18080:18080 \
   -e VPN_URL=YOUR_VPN_SERVER_URL \
@@ -89,7 +89,7 @@ docker run --name vpn-client -d \
   -e PROXY_LISTEN_PORT=18080 \
   -e PROXY_BASE_URL=YOUR_PROXY_BASE_URL \
   -e PROXY_PASS_URL=YOUR_PROXY_PASS_URL \
-  ghcr.io/relybytes/vpn-website-proxy:latest -d
+  ghcr.io/relybytes/vpn-website-proxy:latest
 
 ```
 
