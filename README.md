@@ -52,7 +52,9 @@ To set up this project, you need:
 
 # Build
 
-This section outlines the commands and steps required to build the Docker container.
+For build a new version and test the changes (for development) use this command: `docker-compose -f docker-compose.dev.yml up --build`
+
+Or directly the script using git bash `./vpn-connect.sh`
 
 # Run
 
@@ -76,6 +78,8 @@ services:
       - PROXY_BASE_URL= # URL to proxy pass without ports (can be the same of proxy pass url)
       - PROXY_LISTEN_PORT=18080
 ```
+
+And execute the `docker-compose up`
 
 or docker command:
 

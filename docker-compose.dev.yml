@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  vpn-client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "9091:9091"
+    environment:
+      - VPN_URL=my.vpn.com
+      - VPN_USER=username
+      - VPN_PASS=password
+      - PROXY_PASS_URL=http://mywebsite.com:9091
+      - PROXY_BASE_URL=http://mywebsite.com
+      - PROXY_LISTEN_PORT=9091
